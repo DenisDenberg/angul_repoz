@@ -1,0 +1,43 @@
+<!doctype html>
+<!-- MODULE 2  SOLUTION   -->
+<html lang="en"  ng-app="ShoppingListCheckOff">
+  <head>
+    <title>Shopping List Check Off</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="styles/bootstrap.min.css">
+         <link rel="stylesheet" href="styles/styling2.css">
+         <script src="angular.min.js"></script>
+         <script src="app.js"></script>
+
+  </head>
+<body>
+<div class="container">
+  <h1>Shopping List Check Off</h1>
+<div class="row">
+
+            <div class="col-md-6" ng-controller="ToBuyShoppingController as showList">
+             <h2>To Buy:</h2>
+             <ul>
+               <li ng-repeat="item in showList.items">
+                Buy {{ item.quantity }}   {{ item.name }}
+                 <button ng-click="showList.removeItem($index);"> Buy it </button>
+               </li>
+             </ul>
+             <div ng-if = "showList.listEmpty"  class="emptyMessage">Everything is bought!</div>
+            </div>
+
+            <div class="col-md-6" ng-controller="BoughtShoppingController as ctrl2">
+             <h2>Already Bought:</h2>
+             <ul>
+               <li ng-repeat="item in ctrl2.items2">
+                Bought  {{ item.quantity }} of   {{ item.name }}
+               </li>
+             </ul>
+              <div ng-if = "!ctrl2.items2[0].quantity" class="emptyMessage">Nothing bought yet.</div>
+              <div  class="emptyMessage">  </div>
+            </div>
+</div>
+</div>
+
+</body>
+</html>
